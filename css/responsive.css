@@ -1,0 +1,232 @@
+@media(min-width:576px){
+.nav-item:hover .nav-link{
+    background-color: lightgray !important;
+    color:#17a2b8 !important;
+  }
+
+  /*---------.submenu--------------*/
+  .submenu-item{
+      border-bottom: 1px solid lightgrey !important;
+      padding: 8px 0 0 0  !important;
+      
+  }
+  .submenu-item:hover .submenu-link{
+   display: inline-block !important;
+  }
+  .login-form{
+    max-width: 80%;
+}
+
+  /*-------------CAKES (gallery)----------------*/
+
+.title::before,
+.title::after{  
+    content: '';
+    position: absolute !important;
+    display: block;
+    top:50% !important;
+    width: 80px;
+    height: 3px ;
+    background-color:#851e72 !important;
+}
+.title::before{
+   left:10%;
+}
+.title::after{
+    right:10%;
+  }
+.login-wrapper{
+  top:25%;
+}
+.registration-wrapper,
+.login-wrapper{
+  left:10%;
+  width: 80%;
+}
+  
+}
+
+
+
+@media(min-width:768px){
+  header{
+    background-color: transparent;
+  }
+   .navbar-brand {
+     max-width: 18% !important;
+   }
+   .navbar-brand img{
+    max-width:80%;
+    max-height: 70%;
+}
+    .nav-item{
+        border-bottom: none;
+        padding:  0px;
+       /* text-shadow: 3px 3px 10px #ff07c1; */
+    } 
+    .nav-item .nav-link{
+      text-decoration-style: double;
+      font-size:1.3rem; 
+    }  
+    .submenu-item{
+        border-bottom: 2px solid lightgrey !important;
+    }
+    
+    .fa-caret-down,
+    .fa-caret-up{
+        display: none !important;
+    }
+    .submenu{
+        display:none;
+        position: absolute;
+        left:-270%;
+        top:100%;
+        animation: submenu 1s linear;
+        width: 470px;
+    }
+   ul.submenu-visible {
+     display: flex;
+   }
+   .submenu-visible .submenu-item-active,
+   .submenu-visible .submenu-item-active:hover{
+     background-color: #851e72 !important;
+   }
+   .submenu-item-active .submenu-link{
+    color:#17a2b8;
+   }
+    .submenu-link{
+        text-align: center;
+    }
+    .submenu-item{
+      border-bottom: 1px solid transparent !important;
+      border-right: 1px solid #851e72;
+      padding: 6px  !important;   
+  }
+  .submenu-item:last-of-type{
+    border-right: none;
+  }
+  
+  .nav-item:hover .nav-link {
+    background-color: transparent!important;   
+      }
+    
+    .nav-item:hover > .submenu {
+        display: flex!important;
+        transition:0.5s linear;
+    }
+    @keyframes submenu{
+        0% {
+            opacity:0;
+           /* transform:translateY(50px);*/
+        }
+        100%{
+            opacity:1;
+            /*transform:translateY(0px);*/
+        }
+    }
+
+    /*section about*/
+    .about-info{
+      max-width: 70%;
+  }
+  .about h1 {
+    margin-bottom: 80px !important
+  }
+  .about article h5:hover{
+    opacity: 0.5;
+  }
+
+  /*-------------CAKES (gallery)----------------*/
+  .cakes-info{
+    padding-top:200px !important;
+  }
+
+.title::before,
+.title::after{   
+    width: 120px;
+}
+.title::before{
+   left:15%;
+}
+.title::after{
+    right:15%;
+}
+.cake .submenu{
+  display: none;
+}
+/*---------------COMMENS LOGGED---------------*/
+.comments-logged-sweet-wall{
+  height: 340px; 
+  background-size: cover;
+   }
+
+}
+
+@media(min-width:992px){
+    *{
+        font-size: 16px;
+    }
+    .submenu{
+      left: -260%;
+      width: 600px;
+    }
+
+    .nav-item, 
+    .submenu-item{
+        border-bottom: none;
+        padding:  0 8px;
+    }
+    .registration-wrapper,
+     .login-wrapper{
+      left:15%;
+      width: 70%;
+    }
+
+/*-------------CAKES (gallery)----------------*/
+
+    .title::before,
+    .title::after{     
+      width: 180px;
+  }
+  .title::before{
+    left:15%;
+ }
+ .title::after{
+     right:15%;
+ }
+
+ .login-form{
+  max-width: 50%;
+  }
+  /*-----------------BLOG---------------------*/
+  .blog-item{
+    margin: auto;
+    max-width: 80%;
+  }
+  .blog-item img{
+    max-height: 250px;
+  }
+  .login-wrapper{
+    top:20% !important;
+  }
+  /*---------------COMMENS LOGGED---------------*/
+.comments-logged-sweet-wall{
+  height: 360px; 
+  background-size: cover;
+   }
+
+}
+
+
+@media(min-width:1200px){
+  .navbar-brand img{
+    max-width:60%;
+    max-height: 60%;
+}
+/*---------------COMMENTS LOGGED---------------*/
+.comments-logged-sweet-wall{
+  height: 323px; 
+  background-size: cover;
+   }
+
+}

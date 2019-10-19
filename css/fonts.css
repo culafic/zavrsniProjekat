@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'SocialGothic';
+    src: url('../fonts/SocialGothic/SocialGothic.eot?#iefix') format('embedded-opentype'),  url('../fonts/SocialGothic/SocialGothic.otf')  format('opentype'),
+           url('../fonts/SocialGothic/SocialGothic.woff') format('woff'), url('../fonts/SocialGothic/SocialGothic.ttf')  format('truetype'), url('../fonts/SocialGothic/SocialGothic.svg#SocialGothic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+
+  @font-face {
+    font-family: 'BurbankSmall-Bold';
+    src: url('../fonts/BurbankSmall/BurbankSmall-Bold.eot?#iefix') format('embedded-opentype'),  url('../fonts/BurbankSmall/BurbankSmall-Bold.otf')  format('opentype'),
+           url('../fonts/BurbankSmall/BurbankSmall-Bold.woff') format('woff'), url('BurbankSmall-Bold.ttf')  format('truetype'), url('../fonts/BurbankSmall/BurbankSmall-Bold.svg#BurbankSmall-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+
+  
+@font-face {
+    font-family: 'Geneva';
+    src: url('../fonts/Geneva/Geneva.eot?#iefix') format('embedded-opentype'),  url('../fonts/Geneva/Geneva.woff') format('woff'), url('../fonts/Geneva/Geneva.ttf')  format('truetype'), url('../fonts/Geneva/Geneva.svg#Geneva') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
