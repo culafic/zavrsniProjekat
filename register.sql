@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Oct 05, 2019 at 08:39 PM
--- Server version: 5.7.26
--- PHP Version: 7.2.18
+-- Host: 127.0.0.1
+-- Generation Time: Oct 20, 2019 at 01:23 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,25 +28,24 @@ SET time_zone = "+00:00";
 -- Table structure for table `comments`
 --
 
-DROP TABLE IF EXISTS `comments`;
-CREATE TABLE IF NOT EXISTS `comments` (
-  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
-  `reply_id` int(11) DEFAULT NULL,
-  `post_id` int(11) NOT NULL,
-  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `name` varchar(255) NOT NULL,
-  `message` text NOT NULL,
-  PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+CREATE TABLE `comments` (
+  `cid` int(11) NOT NULL,
+  `uid` varchar(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `date` datetime NOT NULL,
+  `message` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
 --
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`comment_id`, `reply_id`, `post_id`, `timestamp`, `name`, `message`) VALUES
-(1, NULL, 999, '2019-10-05 22:33:11', 'Pera', 'Prva poruka'),
-(2, 1, 999, '2019-10-05 22:33:26', 'John Doe', 'Prvi odgovor Peri'),
-(3, NULL, 999, '2019-10-05 22:34:20', 'Pera', 'drugi komentar');
+INSERT INTO `comments` (`cid`, `uid`, `date`, `message`, `id`) VALUES
+(1, 'marija', '2019-10-09 00:00:00', 'Svaka cast! Sve pohvale', 1),
+(105, 'ivona123', '2019-10-19 17:21:11', 'Sve pohvale\r\n', 3),
+(110, 'marija', '2019-10-20 00:31:16', 'Koliko koÅ¡ta jedna deÄija torta?', 1),
+(111, 'marija', '2019-10-20 00:31:35', 'PoÅ¡tovani, jako mi se dopadaju vaÅ¡e torte i oduÅ¡evljena sam sajom i slikama.\r\n', 1),
+(112, 'marija', '2019-10-20 00:31:35', 'PoÅ¡tovani, jako mi se dopadaju vaÅ¡e torte i oduÅ¡evljena sam sajom i slikama.\r\n', 1);
 
 -- --------------------------------------------------------
 
@@ -54,8 +53,7 @@ INSERT INTO `comments` (`comment_id`, `reply_id`, `post_id`, `timestamp`, `name`
 -- Table structure for table `password_reset_temp`
 --
 
-DROP TABLE IF EXISTS `password_reset_temp`;
-CREATE TABLE IF NOT EXISTS `password_reset_temp` (
+CREATE TABLE `password_reset_temp` (
   `email` varchar(250) NOT NULL,
   `key` varchar(250) NOT NULL,
   `expDate` datetime NOT NULL
@@ -77,42 +75,67 @@ INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `replays`
---
-
-DROP TABLE IF EXISTS `replays`;
-CREATE TABLE IF NOT EXISTS `replays` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `content` text COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `comment_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `comment_id` (`comment_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) COLLATE utf32_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf32_unicode_ci NOT NULL,
-  `password` longtext COLLATE utf32_unicode_ci NOT NULL,
-  `trn_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `trn_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `trn_date`) VALUES
-(1, 'marija', 'marijaculafic88@gmail.com', '$2y$10$znTAxXE8uqF4nkUwsWBggunixpx4JXAhY3Wlc4o2sxgYILQIhjWce', '2019-09-22 21:04:36'),
-(2, 'pera', 'pera@gmail.com', '$2y$10$w/dEVfJwGKA186W0FPcsQuJoRlghqcLztV8PRzH6ZGi15FTS99jb.', '2019-09-23 21:22:32');
+(1, 'marija', 'marijaculafic88@gmail.com', '$2y$10$Ib.dZKRCT1Fkufm9lkJE/OXw5mlel1WqhEcS1uaZRs96O552yXX2u', '2019-10-20 00:33:45'),
+(3, 'ivona123', 'ivona123@live.com', '$2y$10$3m24KLADvC51fMLJJGn/q.sKUUSIadIvczFN34jp..2/PIUErG98S', '2019-10-08 00:00:00');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`cid`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
